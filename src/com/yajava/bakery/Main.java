@@ -1,8 +1,5 @@
 package com.yajava.bakery;
 
-import com.yajava.cakes.ChocolateCake;
-import com.yajava.cakes.PrincessCake;
-import com.yajava.cakes.Semla;
 import com.yajava.customer.Customer;
 import com.yajava.service.Orderlist;
 
