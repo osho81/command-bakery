@@ -19,7 +19,7 @@ public class ProcessPipeline {
         Thread.sleep(1000);
         for(var command : pipeline){
             cake = command.process(cake); // Execute current command
-            Thread.sleep(700); // Paus is just a design choice
+            Thread.sleep(600); // Paus is just a design choice
         }
         return cake;
     }

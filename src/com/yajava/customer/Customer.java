@@ -1,10 +1,7 @@
 package com.yajava.customer;
 
 import com.yajava.cakes.Cake;
-import com.yajava.services.Orderlist;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.yajava.service.Orderlist;
 
 public class Customer extends Person {
 
@@ -22,4 +19,10 @@ public class Customer extends Person {
     public void setOrderlist(Orderlist orderlist) {
         this.orderlist = orderlist;
     }
+
+    // Method for buying a cake
+    public void buyItem(Cake cake) {
+        orderlist.addToOrders(cake);
+    }
+
 }
