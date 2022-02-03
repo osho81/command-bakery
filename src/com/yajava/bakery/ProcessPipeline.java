@@ -1,6 +1,6 @@
 package com.yajava.bakery;
 
-import com.yajava.bake.BakeCommand;
+import com.yajava.bakecommand.BakeCommand;
 import com.yajava.cakes.Cake;
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class ProcessPipeline {
         Thread.sleep(1000);
         for(var command : pipeline){
             cake = command.process(cake); // Execute current command
-            Thread.sleep(1000); // Paus is just a design choice
+            Thread.sleep(700); // Paus is just a design choice
         }
         return cake;
     }

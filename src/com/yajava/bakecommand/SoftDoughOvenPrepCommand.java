@@ -1,20 +1,20 @@
-package com.yajava.bake;
+package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
 import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
-public class SemlaOvenPreparation implements BakeCommand {
+public class SoftDoughOvenPrepCommand implements BakeCommand {
 
     @Override
     public Cake process(Cake cake) {
 
         if (cake instanceof Semla) {
-            System.out.println("Split semla dough into 12 lean rolls; placed on oven plate; let rest 90 minutes");
+            System.out.println(cake.getClass().getSimpleName() + " need another oven preparation");
         }
         else if (cake instanceof ChocolateCake) {
-            System.out.println(cake.getClass().getSimpleName() + " need another oven preparation");
+            System.out.println("Poured the soft dough into an oven form");
         }
         else if (cake instanceof PrincessCake) {
             System.out.println("No oven procedure for " + cake.getClass().getSimpleName());

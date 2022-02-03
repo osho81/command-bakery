@@ -1,11 +1,11 @@
-package com.yajava.bake;
+package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
 import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
-public class MeltButter implements BakeCommand {
+public class MeltButterCommand implements BakeCommand {
 
     @Override
     public Cake process(Cake cake) {
@@ -14,7 +14,7 @@ public class MeltButter implements BakeCommand {
             System.out.println("No melted butter needed for " + cake.getClass().getSimpleName());
         }
         else if (cake instanceof ChocolateCake) {
-            System.out.println("Melting butter in a pot");
+            System.out.println("Melted butter in a pot");
         }
         else if (cake instanceof PrincessCake) {
             System.out.println("No melted butter needed for " + cake.getClass().getSimpleName());

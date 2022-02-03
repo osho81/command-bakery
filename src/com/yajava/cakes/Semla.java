@@ -1,10 +1,7 @@
 package com.yajava.cakes;
 
-import com.yajava.bake.BakeCommand;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Semla extends Cake {
 

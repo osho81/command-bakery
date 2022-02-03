@@ -1,4 +1,4 @@
-package com.yajava.bake;
+package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
 import com.yajava.cakes.ChocolateCake;
@@ -7,22 +7,20 @@ import com.yajava.cakes.Semla;
 
 // For command class comments, see primarily WhippingCream command class
 
-public class VanillaOnBase implements BakeCommand {
+public class VanillaOnCakeBaseCommand implements BakeCommand {
 
     @Override
     public Cake process(Cake cake) {
 
         if (cake instanceof Semla) {
             System.out.println("No cake base or vanilla cream needed for " + cake.getClass().getSimpleName());
-        }
-        else if (cake instanceof ChocolateCake) {
+        } else if (cake instanceof ChocolateCake) {
             System.out.println("No cake base or vanilla cream for " + cake.getClass().getSimpleName());
-        }
-        else if (cake instanceof PrincessCake) {
-            System.out.println("Added a level of cake base & added a layer of vanilla cream on it");
+        } else if (cake instanceof PrincessCake) {
             ((PrincessCake) cake).setVanillaCream("Vanilla cream");
-        }
-        else {
+            System.out.println("Added another level of " + ((PrincessCake) cake).getCakeBase().toLowerCase() + " & added a layer of " +
+                    ((PrincessCake) cake).getVanillaCream() + " on it");
+        } else {
             System.out.println("Cake type is not recognized");
         }
         return cake;

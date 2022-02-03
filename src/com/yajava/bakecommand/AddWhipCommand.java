@@ -1,11 +1,11 @@
-package com.yajava.bake;
+package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
 import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
-public class AddButter implements BakeCommand {
+public class AddWhipCommand implements BakeCommand {
 
     // Command method for this specific process-STEP
     @Override
@@ -14,14 +14,15 @@ public class AddButter implements BakeCommand {
         // Manipulate chosen cake type fields/variables
         // Considering Cake can be 1 of 3 children; needs casting during runtime
         if (cake instanceof Semla) {
-            System.out.println( cake.getClass().getSimpleName() + " need another butter adding procedure");
+            ((Semla) cake).setWhipCream("Hard whip cream");
+            System.out.println("Spread " + ((Semla) cake).getWhipCream().toLowerCase() + " evenly in a dome shape");
         }
         else if (cake instanceof ChocolateCake) {
-            System.out.println("Added melted butter to the chocolate cake dough");
-            ((ChocolateCake) cake).setButter("Butter");
+            System.out.println("Deviated from basic " + cake.getClass().getSimpleName().toLowerCase() + " recipe & added whip cream on chocolate cake");
         }
         else if (cake instanceof PrincessCake) {
-            System.out.println("No butter needed for " + cake.getClass().getSimpleName());
+            ((PrincessCake) cake).setWhipCream("Whip cream");
+            System.out.println("Added a click of " + ((PrincessCake) cake).getWhipCream().toLowerCase());
         }
         else {
             System.out.println("Cake type is not recognized");
