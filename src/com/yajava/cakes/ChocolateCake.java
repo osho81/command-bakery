@@ -16,7 +16,8 @@ public class ChocolateCake extends Cake {
     private String salt;
     private int ovenTemperature;
     private int ovenMinutes;
-    private boolean done;
+    private boolean ordered;
+    private String status;
 
     // See Semla class for comments on Observer pattern components
     private PropertyChangeSupport propertyChangeSupport;
@@ -32,6 +33,7 @@ public class ChocolateCake extends Cake {
         this.salt = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
+        this.status = "Undone";
         this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
@@ -87,12 +89,22 @@ public class ChocolateCake extends Cake {
     public void setOvenMinutes(int ovenMinutes) {
         this.ovenMinutes = ovenMinutes;
     }
-    public boolean isDone() { return done; }
 
-    public void setDone(boolean done) {
-        boolean oldDoneState = this.done;
-        this.done = done;
-        this.propertyChangeSupport.firePropertyChange("ChocolateCakeDone", oldDoneState, this.done);
+    public boolean isOrdered() { return ordered; }
+
+    // Report changes in the object state; The ordered-state is utilized in BakingControl class
+    public void setOrdered(boolean ordered) {
+        boolean oldOrdered = this.ordered;
+        this.ordered = ordered;
+        this.propertyChangeSupport.firePropertyChange("Ordered", oldOrdered, this.ordered);
+    }
+
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) {
+        String oldDoneState = this.status;
+        this.status = status;
+        this.propertyChangeSupport.firePropertyChange("Chocolate cake", oldDoneState, this.status);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener){

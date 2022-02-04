@@ -20,7 +20,10 @@ public class Semla extends Cake {
     private String icingSugar;
     private int ovenTemperature;
     private int ovenMinutes;
-    private boolean done; // Manipulated by the Observer pattern; Default value is false
+
+    // Manipulated by the Observer pattern
+    private boolean ordered; // Default value is false
+    private String status;
 
     // Class that supports listening for state changes in object; Part of Observer pattern
     private PropertyChangeSupport propertyChangeSupport;
@@ -41,6 +44,7 @@ public class Semla extends Cake {
         this.icingSugar = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
+        this.status = "Undone"; // Part of Observer pattern
 
         // Initializing propertyChangeSupport
         this.propertyChangeSupport = new PropertyChangeSupport(this);
@@ -116,16 +120,26 @@ public class Semla extends Cake {
     public void setOvenTemperature(int ovenTemperature) { this.ovenTemperature = ovenTemperature; }
     public int getOvenMinutes() { return ovenMinutes; }
     public void setOvenMinutes(int ovenMinutes) { this.ovenMinutes = ovenMinutes; }
-    public boolean isDone() { return done; }
 
-    // Report changes in the object state; The report is utilized in BakingControl class
-    public void setDone(boolean done) {
-        boolean oldDoneState = this.done;
-        this.done = done;
-        this.propertyChangeSupport.firePropertyChange("SemlaDone", oldDoneState, this.done);
+    public boolean getOrdered() { return ordered; }
+
+    // Report changes in the object state; The ordered-state is utilized in BakingControl class
+    public void setOrdered(boolean ordered) {
+        boolean oldOrdered = this.ordered;
+        this.ordered = ordered;
+        this.propertyChangeSupport.firePropertyChange("Ordered", oldOrdered, this.ordered);
     }
 
-    // Method for adding property listener; Part of Observer pattern; See setDone()
+    public String getStatus() { return status; }
+
+    // Report changes in the object state; The status-state is utilized in BakingControl class
+    public void setStatus(String status) {
+        String oldStatus = this.status;
+        this.status = status;
+        this.propertyChangeSupport.firePropertyChange("Semla", oldStatus, this.status);
+    }
+
+    // Add property listener; Part of Observer pattern; See setOrdered() & setStatus()
     public void addPropertyChangeListener(PropertyChangeListener listener){
         this.propertyChangeSupport.addPropertyChangeListener(listener);
     }

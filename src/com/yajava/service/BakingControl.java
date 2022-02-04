@@ -9,6 +9,6 @@ public class BakingControl implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println("\nBaking status changed; " + evt.getPropertyName() + " is " + evt.getNewValue());
+        System.out.println("\nBaking status changed; " + evt.getPropertyName() + " : " + evt.getNewValue());
     }
 }

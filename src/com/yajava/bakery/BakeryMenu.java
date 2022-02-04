@@ -4,8 +4,6 @@ import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 import com.yajava.customer.Customer;
-import com.yajava.service.BakingControl;
-
 import java.util.Scanner;
 
 /**
@@ -19,41 +17,41 @@ public class BakeryMenu {
 
     public void runMenu(Customer customer) throws InterruptedException {
 
+        System.out.println("Welcome to Cakery");
+
         int menuChoice = 0;
         while (menuChoice != 6) {
-
-            // Creating Observing object, to connect to created/ordered objects
-            BakingControl bakingControl = new BakingControl();
 
             printMenu();
             menuChoice = readInt();
 
             switch (menuChoice) {
                 case 1 -> {
-                    Semla semla = (Semla) Bakery.bakeSemla(); // Create cake chosen by customer
-                    semla.addPropertyChangeListener(bakingControl); // Add property-change/observing methods
-                    customer.buyItem(semla); // Buy cake via customer method
-                    semla.setDone(true); // Trigger property-change/observing methods
+                    // Create cake chosen by customer
+                    Semla semla = (Semla) BakeryProcess.bakeSemla(customer);
+
+                    // Trigger property-change when order is done; Observer/Listener added in BakeryProcess
+                    semla.setStatus("Done");
+
+                    // Buy done cake, via method in Customer class
+                    customer.buyItem(semla);
                 }
                 case 2 -> {
-                    ChocolateCake chocolateCake = (ChocolateCake) Bakery.bakeChocolateCake(false);
-                    chocolateCake.addPropertyChangeListener(bakingControl);
+                    ChocolateCake chocolateCake = (ChocolateCake) BakeryProcess.bakeChocolateCake(customer, false);
+                    chocolateCake.setStatus("Done");
                     customer.buyItem(chocolateCake);
-                    chocolateCake.setDone(true);
                 }
                 case 3 -> {
-                    ChocolateCake chocolateCakeWhip = (ChocolateCake) Bakery.bakeChocolateCake(true);
-                    chocolateCakeWhip.addPropertyChangeListener(bakingControl);
+                    ChocolateCake chocolateCakeWhip = (ChocolateCake) BakeryProcess.bakeChocolateCake(customer, true);
+                    chocolateCakeWhip.setStatus("Done");
                     customer.buyItem(chocolateCakeWhip);
-                    chocolateCakeWhip.setDone(true);
                 }
                 case 4 -> {
-                    PrincessCake princessCake = (PrincessCake) Bakery.bakePrincessCake();
-                    princessCake.addPropertyChangeListener(bakingControl);
+                    PrincessCake princessCake = (PrincessCake) BakeryProcess.bakePrincessCake(customer);
+                    princessCake.setStatus("Done");
                     customer.buyItem(princessCake);
-                    princessCake.setDone(true);
                 }
-                case 5 -> System.out.println("Customer name/IO: " + customer.getName() + "/" + customer.getPersonID() + "\n" + customer.getOrderlist());
+                case 5 -> System.out.println("Customer name: " + customer.getName() + ", customer-ID: " + customer.getPersonID() + "\n" + customer.getOrderlist());
                 case 6 -> {
                     System.out.println("Exiting the ordering application - Thank You!");
                 }
@@ -83,7 +81,9 @@ public class BakeryMenu {
         }
 
         // If input is integer-number, accept it and return it
-        return scan.nextInt();
+        int choice = scan.nextInt();
+        scan.nextLine();
+        return choice;
     }
 
     private void printMenu() {

@@ -33,7 +33,7 @@ public class Orderlist {
 
     @Override
     public String toString() {
-        return "OrderID: " + orderID + "\n" + printCakeList();
+        return "Order-ID: " + orderID + "\n" + printCakeList();
     }
 
     // Print out of orderlist in a cleaner manner; used in toString

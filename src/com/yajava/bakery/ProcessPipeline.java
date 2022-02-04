@@ -4,6 +4,8 @@ import com.yajava.bakecommand.BakeCommand;
 import com.yajava.cakes.Cake;
 import java.util.ArrayList;
 
+// Class enabling adding and executing multiple commands
+
 public class ProcessPipeline {
 
     // Takes the interface as data type, to capture all classes that implements it
@@ -19,7 +21,7 @@ public class ProcessPipeline {
         Thread.sleep(1000); // Sleep is just a design choice
         for(var command : pipeline){
             cake = command.process(cake); // Execute current command
-            Thread.sleep(600);
+            Thread.sleep(500);
         }
         return cake;
     }
