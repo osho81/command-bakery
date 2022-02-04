@@ -16,9 +16,8 @@ public class Customer extends Person {
         return orderlist;
     }
 
-    public void setOrderlist(Orderlist orderlist) {
-        this.orderlist = orderlist;
-    }
+    // Could be used to e.g. assigning another orderlist to customer
+    public void setOrderlist(Orderlist orderlist) { this.orderlist = orderlist; }
 
     // Method for buying a cake
     public void buyItem(Cake cake) {

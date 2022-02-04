@@ -5,14 +5,13 @@ import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
+// For command class comments, see AddWhipCommand class
+
 public class AddButterCommand implements BakeCommand {
 
-    // Command method for this specific process-STEP
     @Override
     public Cake process(Cake cake) {
 
-        // Manipulate chosen cake type fields/variables
-        // Considering Cake can be 1 of 3 children; needs casting during runtime
         if (cake instanceof Semla) {
             System.out.println( cake.getClass().getSimpleName() + " need another butter adding procedure");
         }

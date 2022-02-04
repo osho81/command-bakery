@@ -5,7 +5,7 @@ import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
-// For command class comments, see primarily WhippingCream command class
+// For command class comments, see AddWhipCommand class
 
 public class WhippingCreamCommand implements BakeCommand {
 

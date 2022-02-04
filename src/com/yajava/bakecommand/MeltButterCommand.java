@@ -5,6 +5,8 @@ import com.yajava.cakes.ChocolateCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
+// For command class comments, see AddWhipCommand class
+
 public class MeltButterCommand implements BakeCommand {
 
     @Override

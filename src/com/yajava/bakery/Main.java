@@ -11,9 +11,8 @@ public class Main {
         Orderlist orderlist = new Orderlist("1001");
         Customer customer = new Customer("Donald Duck", "123456789", orderlist);
 
-        // Pass in the customer and his assigned orderlist to the application/menu logic
+        // Pass in the customer (and assigned orderlist) to the application logic in BakeryManu
         BakeryMenu bakeryMenu = new BakeryMenu();
         bakeryMenu.runMenu(customer);
-
     }
 }

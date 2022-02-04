@@ -11,9 +11,9 @@ public class AddWhipCommand implements BakeCommand {
     @Override
     public Cake process(Cake cake) {
 
-        // Manipulate chosen cake type fields/variables
-        // Considering Cake can be 1 of 3 children; needs casting during runtime
+        // Considering the cake can be 1 of 3 child classes (therefore casting)
         if (cake instanceof Semla) {
+            // Manipulate object fields/variables with setters, and access for print out with getters
             ((Semla) cake).setWhipCream("Hard whip cream");
             System.out.println("Spread " + ((Semla) cake).getWhipCream().toLowerCase() + " evenly in a dome shape");
         }

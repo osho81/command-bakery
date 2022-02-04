@@ -1,5 +1,7 @@
 package com.yajava.cakes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,6 +20,10 @@ public class Semla extends Cake {
     private String icingSugar;
     private int ovenTemperature;
     private int ovenMinutes;
+    private boolean done; // Manipulated by the Observer pattern; Default value is false
+
+    // Class that supports listening for state changes in object; Part of Observer pattern
+    private PropertyChangeSupport propertyChangeSupport;
 
     // Contents are filled in accordance with the process-steps
     public Semla(String cakeName, int cakeID, int celsius, int ovenMinutes) {
@@ -35,6 +41,9 @@ public class Semla extends Cake {
         this.icingSugar = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
+
+        // Initializing propertyChangeSupport
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
     public String getMilk() {
@@ -107,6 +116,19 @@ public class Semla extends Cake {
     public void setOvenTemperature(int ovenTemperature) { this.ovenTemperature = ovenTemperature; }
     public int getOvenMinutes() { return ovenMinutes; }
     public void setOvenMinutes(int ovenMinutes) { this.ovenMinutes = ovenMinutes; }
+    public boolean isDone() { return done; }
+
+    // Report changes in the object state; The report is utilized in BakingControl class
+    public void setDone(boolean done) {
+        boolean oldDoneState = this.done;
+        this.done = done;
+        this.propertyChangeSupport.firePropertyChange("SemlaDone", oldDoneState, this.done);
+    }
+
+    // Method for adding property listener; Part of Observer pattern; See setDone()
+    public void addPropertyChangeListener(PropertyChangeListener listener){
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
+    }
 
     @Override
     public String toString() {

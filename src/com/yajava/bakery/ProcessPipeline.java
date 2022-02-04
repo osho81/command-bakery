@@ -16,10 +16,10 @@ public class ProcessPipeline {
 
     // Method for executing each added command, with a for each loop
     public Cake execute(Cake cake) throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(1000); // Sleep is just a design choice
         for(var command : pipeline){
             cake = command.process(cake); // Execute current command
-            Thread.sleep(600); // Paus is just a design choice
+            Thread.sleep(600);
         }
         return cake;
     }

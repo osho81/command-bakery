@@ -1,5 +1,7 @@
 package com.yajava.cakes;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,6 +16,10 @@ public class ChocolateCake extends Cake {
     private String salt;
     private int ovenTemperature;
     private int ovenMinutes;
+    private boolean done;
+
+    // See Semla class for comments on Observer pattern components
+    private PropertyChangeSupport propertyChangeSupport;
 
     public ChocolateCake(String cakeName, int cakeID, int celsius, int ovenMinutes) {
         super(cakeName, cakeID);
@@ -26,6 +32,7 @@ public class ChocolateCake extends Cake {
         this.salt = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
+        this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
     public String getButter() {
@@ -79,6 +86,17 @@ public class ChocolateCake extends Cake {
     }
     public void setOvenMinutes(int ovenMinutes) {
         this.ovenMinutes = ovenMinutes;
+    }
+    public boolean isDone() { return done; }
+
+    public void setDone(boolean done) {
+        boolean oldDoneState = this.done;
+        this.done = done;
+        this.propertyChangeSupport.firePropertyChange("ChocolateCakeDone", oldDoneState, this.done);
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener){
+        this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
 
     @Override
