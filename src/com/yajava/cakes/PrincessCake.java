@@ -29,7 +29,7 @@ public class PrincessCake extends Cake {
         this.marzipanLid = "";
         this.marzipanRose = "e";
         this.icingSugar = "";
-        this.status = "Undone";
+        this.status = "Not delivered";
         this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
@@ -84,7 +84,7 @@ public class PrincessCake extends Cake {
     public void setStatus(String status) {
         String oldDoneState = this.status;
         this.status = status;
-        this.propertyChangeSupport.firePropertyChange("Princess cake", oldDoneState, this.status);
+        this.propertyChangeSupport.firePropertyChange("Princess cake delivered", oldDoneState, this.status);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener){

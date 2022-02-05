@@ -1,7 +1,7 @@
 package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
@@ -15,16 +15,16 @@ public class SoftDoughCommand implements BakeCommand {
         if (cake instanceof Semla) {
             System.out.println(cake.getClass().getSimpleName() + " need another dough procedure");
         }
-        else if (cake instanceof ChocolateCake) {
-            ((ChocolateCake) cake).setSugar("Sugar");
-            ((ChocolateCake) cake).setEgg("Egg");
-            ((ChocolateCake) cake).setFlour("Flour");
-            ((ChocolateCake) cake).setCocoa("Cocoa");
-            ((ChocolateCake) cake).setVanillaSugar("Vanilla sugar");
-            ((ChocolateCake) cake).setSalt("Salt");
-            System.out.println("Mixed the " + ((ChocolateCake) cake).getSugar().toLowerCase() + ", " + ((ChocolateCake) cake).getEgg().toLowerCase()
-                    + ", " + ((ChocolateCake) cake).getFlour().toLowerCase() + ", " + ((ChocolateCake) cake).getCocoa().toLowerCase()
-                    + ", " + ((ChocolateCake) cake).getVanillaSugar().toLowerCase() + " and " + ((ChocolateCake) cake).getSalt().toLowerCase());
+        else if (cake instanceof MudCake) {
+            ((MudCake) cake).setSugar("Sugar");
+            ((MudCake) cake).setEgg("Egg");
+            ((MudCake) cake).setFlour("Flour");
+            ((MudCake) cake).setCocoa("Cocoa");
+            ((MudCake) cake).setVanillaSugar("Vanilla sugar");
+            ((MudCake) cake).setSalt("Salt");
+            System.out.println("Mixed the " + ((MudCake) cake).getSugar().toLowerCase() + ", " + ((MudCake) cake).getEgg().toLowerCase()
+                    + ", " + ((MudCake) cake).getFlour().toLowerCase() + ", " + ((MudCake) cake).getCocoa().toLowerCase()
+                    + ", " + ((MudCake) cake).getVanillaSugar().toLowerCase() + " and " + ((MudCake) cake).getSalt().toLowerCase());
         }
         else if (cake instanceof PrincessCake) {
             System.out.println("Use ready-made cake base/sponge for " + cake.getClass().getSimpleName());

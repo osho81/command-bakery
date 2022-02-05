@@ -1,7 +1,7 @@
 package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
@@ -15,7 +15,7 @@ public class SoftDoughOvenPrepCommand implements BakeCommand {
         if (cake instanceof Semla) {
             System.out.println(cake.getClass().getSimpleName() + " need another oven preparation");
         }
-        else if (cake instanceof ChocolateCake) {
+        else if (cake instanceof MudCake) {
             System.out.println("Poured the soft dough into an oven form");
         }
         else if (cake instanceof PrincessCake) {

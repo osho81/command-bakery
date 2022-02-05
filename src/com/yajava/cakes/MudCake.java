@@ -5,7 +5,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ChocolateCake extends Cake {
+public class MudCake extends Cake {
 
     private String butter;
     private String sugar;
@@ -22,7 +22,7 @@ public class ChocolateCake extends Cake {
     // See Semla class for comments on Observer pattern components
     private PropertyChangeSupport propertyChangeSupport;
 
-    public ChocolateCake(String cakeName, int cakeID, int celsius, int ovenMinutes) {
+    public MudCake(String cakeName, int cakeID, int celsius, int ovenMinutes) {
         super(cakeName, cakeID);
         this.butter = "";
         this.sugar = "";
@@ -33,7 +33,7 @@ public class ChocolateCake extends Cake {
         this.salt = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
-        this.status = "Undone";
+        this.status = "Not delivered";
         this.propertyChangeSupport = new PropertyChangeSupport(this);
     }
 
@@ -104,7 +104,7 @@ public class ChocolateCake extends Cake {
     public void setStatus(String status) {
         String oldDoneState = this.status;
         this.status = status;
-        this.propertyChangeSupport.firePropertyChange("Chocolate cake", oldDoneState, this.status);
+        this.propertyChangeSupport.firePropertyChange("Mud cake delivered", oldDoneState, this.status);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener){
@@ -114,13 +114,13 @@ public class ChocolateCake extends Cake {
     @Override
     public String toString() {
         ArrayList<String> CakeContents = new ArrayList<>(Arrays.asList(butter, sugar, egg, flour, cocoa, vanillaSugar, salt));
-        String returnStr = super.toString() + "\nChocolate cake contents added: ";
+        String returnStr = super.toString() + "\nMud cake contents added: ";
         for (String str : CakeContents) {
             returnStr += str;
             if (!str.equals(""))
                 returnStr += ", ";
         }
-        return returnStr.substring(0, returnStr.length()-2)  + "."; // Remove last comma + space
+        return returnStr.substring(0, returnStr.length()-2)  + "."; // Remove last comma & space
     }
 
 }

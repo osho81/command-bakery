@@ -5,7 +5,7 @@ import java.beans.PropertyChangeListener;
 
 // Receive reports of changes from cake object's property-change/observing methods
 
-public class BakingControl implements PropertyChangeListener {
+public class BakingAndDeliveryControl implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {

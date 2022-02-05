@@ -1,7 +1,7 @@
 package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
@@ -17,8 +17,8 @@ public class AddWhipCommand implements BakeCommand {
             ((Semla) cake).setWhipCream("Hard whip cream");
             System.out.println("Spread " + ((Semla) cake).getWhipCream().toLowerCase() + " evenly in a dome shape");
         }
-        else if (cake instanceof ChocolateCake) {
-            System.out.println("Deviated from basic " + cake.getClass().getSimpleName().toLowerCase() + " recipe & added whip cream on chocolate cake");
+        else if (cake instanceof MudCake) {
+            System.out.println("Deviated from basic " + cake.getClass().getSimpleName().toLowerCase() + " recipe & added whip cream on mud cake");
         }
         else if (cake instanceof PrincessCake) {
             ((PrincessCake) cake).setWhipCream("Whip cream");

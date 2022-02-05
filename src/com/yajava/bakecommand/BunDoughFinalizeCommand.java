@@ -1,7 +1,7 @@
 package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
@@ -23,7 +23,7 @@ public class BunDoughFinalizeCommand implements BakeCommand {
                     + ((Semla) cake).getSalt().toLowerCase() + ", " + ((Semla) cake).getCardamom().toLowerCase() + ", "  + ((Semla) cake).getSugar().toLowerCase()
                     + "; worked in the " + ((Semla) cake).getButter().toLowerCase() + "; let rest 30 minutes");
         }
-        else if (cake instanceof ChocolateCake) {
+        else if (cake instanceof MudCake) {
             System.out.println(cake.getClass().getSimpleName() + " need another dough procedure");
         }
         else if (cake instanceof PrincessCake) {

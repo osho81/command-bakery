@@ -1,7 +1,7 @@
 package com.yajava.bakecommand;
 
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
@@ -15,7 +15,7 @@ public class AddToppingCommand implements BakeCommand {
         if (cake instanceof Semla) {
             ((Semla) cake).setIcingSugar("Icing sugar");
             System.out.println("Returned the top and added " + ((Semla) cake).getIcingSugar().toLowerCase() + " icing sugar on the top");
-        } else if (cake instanceof ChocolateCake) {
+        } else if (cake instanceof MudCake) {
             System.out.println("No topping needed for " + cake.getClass().getSimpleName());
         } else if (cake instanceof PrincessCake) {
             ((PrincessCake) cake).setMarzipanLid("Marzipan lid");

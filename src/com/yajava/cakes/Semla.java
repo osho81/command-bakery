@@ -21,7 +21,7 @@ public class Semla extends Cake {
     private int ovenTemperature;
     private int ovenMinutes;
 
-    // Manipulated by the Observer pattern
+    // Variables used for the Observer pattern
     private boolean ordered; // Default value is false
     private String status;
 
@@ -44,7 +44,7 @@ public class Semla extends Cake {
         this.icingSugar = "";
         this.ovenTemperature = celsius;
         this.ovenMinutes = ovenMinutes;
-        this.status = "Undone"; // Part of Observer pattern
+        this.status = "Not delivered"; // Part of Observer pattern
 
         // Initializing propertyChangeSupport
         this.propertyChangeSupport = new PropertyChangeSupport(this);
@@ -136,7 +136,7 @@ public class Semla extends Cake {
     public void setStatus(String status) {
         String oldStatus = this.status;
         this.status = status;
-        this.propertyChangeSupport.firePropertyChange("Semla", oldStatus, this.status);
+        this.propertyChangeSupport.firePropertyChange("Semla delivered", oldStatus, this.status);
     }
 
     // Add property listener; Part of Observer pattern; See setOrdered() & setStatus()

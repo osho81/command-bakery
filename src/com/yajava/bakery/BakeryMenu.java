@@ -1,6 +1,6 @@
 package com.yajava.bakery;
 
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 import com.yajava.customer.Customer;
@@ -37,14 +37,14 @@ public class BakeryMenu {
                     customer.buyItem(semla);
                 }
                 case 2 -> {
-                    ChocolateCake chocolateCake = (ChocolateCake) BakeryProcess.bakeChocolateCake(customer, false);
-                    chocolateCake.setStatus("Done");
-                    customer.buyItem(chocolateCake);
+                    MudCake mudCake = (MudCake) BakeryProcess.bakeMudCake(customer, false);
+                    mudCake.setStatus("Done");
+                    customer.buyItem(mudCake);
                 }
                 case 3 -> {
-                    ChocolateCake chocolateCakeWhip = (ChocolateCake) BakeryProcess.bakeChocolateCake(customer, true);
-                    chocolateCakeWhip.setStatus("Done");
-                    customer.buyItem(chocolateCakeWhip);
+                    MudCake mudCakeWhip = (MudCake) BakeryProcess.bakeMudCake(customer, true);
+                    mudCakeWhip.setStatus("Done");
+                    customer.buyItem(mudCakeWhip);
                 }
                 case 4 -> {
                     PrincessCake princessCake = (PrincessCake) BakeryProcess.bakePrincessCake(customer);
@@ -89,8 +89,8 @@ public class BakeryMenu {
     private void printMenu() {
         System.out.println();
         System.out.println("1. Semla");
-        System.out.println("2. Chocolate cake");
-        System.out.println("3. Chocolate cake with whip cream");
+        System.out.println("2. Mud cake");
+        System.out.println("3. Mud cake with whip cream");
         System.out.println("4. Princess cake");
         System.out.println("5. See order list");
         System.out.println("6. Exit");

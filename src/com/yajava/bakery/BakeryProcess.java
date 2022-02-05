@@ -2,18 +2,18 @@ package com.yajava.bakery;
 
 import com.yajava.bakecommand.*;
 import com.yajava.cakes.Cake;
-import com.yajava.cakes.ChocolateCake;
+import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 import com.yajava.customer.Customer;
-import com.yajava.service.BakingControl;
+import com.yajava.service.BakingAndDeliveryControl;
 
 // Class with static methods utilizing respective process pipeline and its appropriate commands
 
 public class BakeryProcess {
 
     // Accessible by all methods in this class
-    private static BakingControl bakingControl = new BakingControl();
+    private static BakingAndDeliveryControl bakingAndDeliveryControl = new BakingAndDeliveryControl();
 
     public static Cake bakeSemla(Customer customer) throws InterruptedException {
         System.out.println("\nStarting process of baking a semla");
@@ -22,7 +22,7 @@ public class BakeryProcess {
 
         // Part of Observer pattern for listening on incoming orders
         // (See BakeryMenu class for listener of undone or done status)
-        semla.addPropertyChangeListener(bakingControl); // Add property-change/observing methods
+        semla.addPropertyChangeListener(bakingAndDeliveryControl); // Add property-change/observing methods
         semla.setOrdered(true); // Trigger property-change/observing methods when order starts
         System.out.println();
 
@@ -42,32 +42,32 @@ public class BakeryProcess {
         return semlaPipeline.execute(semla);
     }
 
-    // Method for baking a chocolate cake - with or without whip cream
-    public static Cake bakeChocolateCake(Customer customer, boolean whipOrNot) throws InterruptedException {
-        String startingText = whipOrNot ? "\nStarting process of baking a chocolate cake with whip cream\n" :
-                "\nStarting process of baking a chocolate cake without whip cream";
+    // Method for baking a mud cake - with or without whip cream
+    public static Cake bakeMudCake(Customer customer, boolean whipOrNot) throws InterruptedException {
+        String startingText = whipOrNot ? "\nStarting process of baking a mud cake with whip cream\n" :
+                "\nStarting process of baking a mud cake without whip cream";
         System.out.println(startingText);
 
-        ChocolateCake chocoCake = new ChocolateCake("Choclomania", customer.getOrderlist().getOrders().size()+1, 175, 20);
+        MudCake mudCake = new MudCake("Choclomania", customer.getOrderlist().getOrders().size()+1, 175, 20);
 
-        chocoCake.addPropertyChangeListener(bakingControl);
-        chocoCake.setOrdered(true);
+        mudCake.addPropertyChangeListener(bakingAndDeliveryControl);
+        mudCake.setOrdered(true);
         System.out.println();
 
-        // Create process line for CHOCOLATE CAKE
-        ProcessPipeline chocolateCakePipeline = new ProcessPipeline();
+        // Create process line for MUD CAKE
+        ProcessPipeline mudCakePipeline = new ProcessPipeline();
 
         // Add appropriate process-steps/commands
-        chocolateCakePipeline.addCommand(new MeltButterCommand());
-        chocolateCakePipeline.addCommand(new SoftDoughCommand());
-        chocolateCakePipeline.addCommand(new AddButterCommand());
-        chocolateCakePipeline.addCommand(new SoftDoughOvenPrepCommand());
-        chocolateCakePipeline.addCommand(new OvenTimeCommand());
+        mudCakePipeline.addCommand(new MeltButterCommand());
+        mudCakePipeline.addCommand(new SoftDoughCommand());
+        mudCakePipeline.addCommand(new AddButterCommand());
+        mudCakePipeline.addCommand(new SoftDoughOvenPrepCommand());
+        mudCakePipeline.addCommand(new OvenTimeCommand());
         if (whipOrNot)
-            chocolateCakePipeline.addCommand(new AddWhipCommand());
+            mudCakePipeline.addCommand(new AddWhipCommand());
 
         // Execute the list of process-steps (i.e. pipline)
-        return (ChocolateCake) chocolateCakePipeline.execute(chocoCake);
+        return (MudCake) mudCakePipeline.execute(mudCake);
     }
 
     public static Cake bakePrincessCake(Customer customer) throws InterruptedException {
@@ -75,7 +75,7 @@ public class BakeryProcess {
 
         PrincessCake princessCake = new PrincessCake("Amazing Princess", customer.getOrderlist().getOrders().size()+1);
 
-        princessCake.addPropertyChangeListener(bakingControl);
+        princessCake.addPropertyChangeListener(bakingAndDeliveryControl);
         princessCake.setOrdered(true);
         System.out.println();
 
