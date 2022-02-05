@@ -4,12 +4,12 @@ import com.yajava.customer.Customer;
 import com.yajava.service.Orderlist;
 
 /**
- * Applicaton simulating a bakery, where customer can order several cake types.
- * Applies Command pattern & Observer pattern.
- *
  * YrkesAkademin, System Acrhitecture course, VT2022
  * Inlämning 1 (hand-in 1)
  * Teacher: Tomas Wigell
+ *
+ *  Applicaton simulating a bakery, where customer can order several cake types.
+ *  Applies Command pattern & Observer pattern.
  */
 
 public class Main {
