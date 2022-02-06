@@ -1,6 +1,6 @@
-# Bakery simulation implementing Command pattern & Observer pattern
+## Bakery simulation implementing Command pattern & Observer pattern
 
-## Description 
+### Description 
 Application simulating a bakery where customer can order different cake types. 
 Implements the Command pattern for the baking procedure; each baking process step is in its own class; 
 some process steps can be applied on multiple cake types.
