@@ -1,7 +1,6 @@
 # Compiled class file
 *.class
 /bin/
-/out/
 
 # Log file
 *.log
@@ -28,3 +27,4 @@ replay_pid*
 # IntelliJ-related
 /*.iml
 /.idea/
+/out/

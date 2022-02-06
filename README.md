@@ -1,4 +1,4 @@
-## Bakery simulation implementing Command pattern & Observer pattern
+### Bakery simulation implementing Command pattern & Observer pattern
 
 ### Description 
 Application simulating a bakery where customer can order different cake types. 
