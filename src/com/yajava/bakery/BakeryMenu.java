@@ -4,6 +4,8 @@ import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 import com.yajava.customer.Customer;
+import com.yajava.service.Orderlist;
+
 import java.util.Scanner;
 
 /**
@@ -15,9 +17,17 @@ public class BakeryMenu {
 
     private final Scanner scan = new Scanner(System.in);
 
-    public void runMenu(Customer customer) throws InterruptedException {
+    public void runMenu() throws InterruptedException {
 
-        System.out.println("Welcome to Cakery");
+        System.out.println("Welcome to Cakery\nPlease enter your name: ");
+        String customerName = scan.nextLine();
+        System.out.println("Please enter your SSN/personal ID: ");
+        String personalID = scan.nextLine();
+
+        // User input name & gets assigned an ordelist
+        Orderlist orderlist = new Orderlist("1001");
+        Customer customer = new Customer(customerName, personalID, orderlist);
+
 
         int menuChoice = 0;
         while (menuChoice != 6) {
