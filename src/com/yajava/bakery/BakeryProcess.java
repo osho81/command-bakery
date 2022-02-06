@@ -13,7 +13,7 @@ import com.yajava.service.BakingAndDeliveryControl;
 public class BakeryProcess {
 
     // Accessible by all methods in this class
-    private static BakingAndDeliveryControl bakingAndDeliveryControl = new BakingAndDeliveryControl();
+    private static final BakingAndDeliveryControl bakingAndDeliveryControl = new BakingAndDeliveryControl();
 
     public static Cake bakeSemla(Customer customer) throws InterruptedException {
         System.out.println("\nStarting process of baking a semla");
