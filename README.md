@@ -12,5 +12,5 @@ Part of course in a Sweden based programming education.
 Motivation is also to learn object-oriented design patterns. 
 
 ### Techs and approaches used
-Java
-Design patterns; command pattern & Observer pattern
+- Java
+- Object-oriented design patterns; command pattern & Observer pattern
