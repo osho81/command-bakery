@@ -18,7 +18,7 @@ public class BakeryProcess {
     public static Cake bakeSemla(Customer customer) throws InterruptedException {
         System.out.println("\nStarting process of baking a semla");
 
-        // customer-orderlist-size is to add next number as cake id
+        // customer-orderlist-size is to add next number as cake id (+1 is becuase it is empty at first initialization)
         Semla semla = new Semla("Whipping Semla", customer.getOrderlist().getOrders().size()+1, 225, 8);
 
         // Part of Observer pattern for listening on incoming orders
