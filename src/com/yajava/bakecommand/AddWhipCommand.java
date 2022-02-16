@@ -5,11 +5,13 @@ import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
+// All command classes (encapsulating a process-step) implements BakeCommand Interface
+
 public class AddWhipCommand implements BakeCommand {
 
     // Command method for this specific process-STEP
     @Override
-    public Cake process(Cake cake) {
+    public Cake process(Cake cake) { // (undefined) method from the BakeCommand Interface
 
         // Considering the cake can be 1 of 3 child classes (therefore casting)
         if (cake instanceof Semla) {

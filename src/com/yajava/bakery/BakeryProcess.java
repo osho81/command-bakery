@@ -18,10 +18,11 @@ public class BakeryProcess {
     public static Cake bakeSemla(Customer customer) throws InterruptedException {
         System.out.println("\nStarting process of baking a semla");
 
+        // customer-orderlist-size is to add next number as cake id
         Semla semla = new Semla("Whipping Semla", customer.getOrderlist().getOrders().size()+1, 225, 8);
 
         // Part of Observer pattern for listening on incoming orders
-        // (See BakeryMenu class for listener of undone or done status)
+        // (See BakeryMenu class for listener of undone/done status)
         semla.addPropertyChangeListener(bakingAndDeliveryControl); // Add property-change/observing methods
         semla.setOrdered(true); // Trigger property-change/observing methods when order starts
         System.out.println();

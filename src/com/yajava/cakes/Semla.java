@@ -139,7 +139,7 @@ public class Semla extends Cake {
         this.propertyChangeSupport.firePropertyChange("Semla delivered", oldStatus, this.status);
     }
 
-    // Add property listener; Part of Observer pattern; See setOrdered() & setStatus()
+    // Use to add property listener; Part of Observer pattern; See setOrdered() & setStatus()
     public void addPropertyChangeListener(PropertyChangeListener listener){
         this.propertyChangeSupport.addPropertyChangeListener(listener);
     }
