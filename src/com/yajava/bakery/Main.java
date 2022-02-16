@@ -1,8 +1,5 @@
 package com.yajava.bakery;
 
-import com.yajava.customer.Customer;
-import com.yajava.service.Orderlist;
-
 /**
  * Osho81
  * YrkesAkademin, System Acrhitecture course, VT2022
