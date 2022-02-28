@@ -5,7 +5,7 @@ import com.yajava.cakes.MudCake;
 import com.yajava.cakes.PrincessCake;
 import com.yajava.cakes.Semla;
 
-// All command classes (encapsulating a process-step) implements BakeCommand Interface
+// All command classes (each encapsulating a process-step) implements BakeCommand Interface
 
 public class AddWhipCommand implements BakeCommand {
 

@@ -9,7 +9,7 @@ import com.yajava.service.Orderlist;
 import java.util.Scanner;
 
 /**
- * Class orchestrating the logic of the ordering application.
+ * Class that orchestrates the logic of the ordering application.
  * Its menu choices calls on the appropriate process-pipeline for respective cake type.
  */
 
@@ -65,7 +65,7 @@ public class BakeryMenu {
                 case 6 -> {
                     System.out.println("Exiting the ordering application - Thank You!");
                 }
-                // Default case captures choices outside 1-6; Data type validation is done in readInt() method
+                // Default case captures choices outside 1-6; while data type validation is done in readInt() method
                 default -> System.out.println("Invalid choice (only 1-6 allowed);\nTry again: ");
             }
         }
@@ -80,7 +80,7 @@ public class BakeryMenu {
         while (!scan.hasNextInt()) {
             scan.nextLine(); // Consumes empty "leftovers" from scanner
 
-            // Limit wrong inputs to three
+            // Limit wrong inputs to three; exits on 3 invalid inputs
             count++;
             if (count == 3) {
                 System.out.print("What an annoying customer!\nGood by!");
